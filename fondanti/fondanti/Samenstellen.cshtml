@@ -13,7 +13,28 @@
 
     if (IsPost && Validation.IsValid())
     {
+        var email = "bencherifdiego@gmail.com";
+        var errormessage = "";
 
+        try
+        {
+            //Initialize WebMail helper
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 25;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "diegocodetest@gmail.com";
+            WebMail.Password = "CodeTest";
+
+            //Send email
+            WebMail.Send(to: email,
+                subject: "A new order has been recieved",
+                body: Request["thema"] + Environment.NewLine + Request["laag"] + Environment.NewLine + Request["Bekleding"] + Environment.NewLine + Request["typeCake"] + Environment.NewLine + Request["taartVulling"] + Environment.NewLine + Request["Allergien"] + Environment.NewLine + Request["Decoratie"] + Environment.NewLine + Request["datumKlaar"]
+                );
+        }
+        catch (Exception ex)
+        {
+            errormessage = ex.Message;
+        }
 
     }
 
