@@ -1,0 +1,100 @@
+﻿@using WebMatrix.Data
+@using WebMatrix.WebData
+@{
+    Validation.RequireField("thema", "Kies een thema.");
+    Validation.RequireField("aantalPersonen", "Kies aantal personen.");
+    Validation.RequireField("laag", "Kies het aantal lagen.");
+    Validation.RequireField("Bekleding", "Kies de type bekleding.");
+    Validation.RequireField("typeCake", "Kies de type cake.");
+    Validation.RequireField("taartVulling", "Kies een vulling voor de taart.");
+    Validation.RequireField("Decoratie", "Kies de complexiteit van de decoratie.");
+    Validation.RequireField("datumKlaar", "Kies een datum waarop de taart nodig is.");
+
+
+    if (IsPost && Validation.IsValid())
+    {
+
+
+    }
+
+}
+
+<body>
+    <form method="post" name="Bestelling">
+        @{
+            //Volgorde: Thema > Personen > Lagen > Type Cake > Bekleding > Taart Vulling > Allergieën > Niveau van decoratie > Datum taart nodig
+        }
+
+        <div>
+            <input type="radio" name="thema" value="Volwassen"> Verjaardag Volwassen     <br>
+            <input type="radio" name="thema" value="Bruiloft"> Bruiloft                  <br>
+            <input type="radio" name="thema" value="Kind"> Verjaardag Kind               <br>
+            <input type="radio" name="thema" value="Anders"> Anders, namelijk <input type="text" name="Anders" />
+        </div>
+        <br />
+
+        <div>
+            Aantal personen:
+            <input type="text" name="aantalPersonen" />
+        </div>
+        <br />
+
+        <div>
+            Aantal lagen: <br />
+            <input type="radio" name="laag" value="Één laag"> Één laag (circa 15-20 personen)         <br>
+            <input type="radio" name="laag" value="Twee lagen"> Twee lagen (circa 30-40 personen)     <br>
+            <input type="radio" name="laag" value="Drie lagen"> Drie lagen (circa 50-60 personen)     <br>
+            <input type="radio" name="laag" value="Vier lagen"> Vier lagen (circa 70-80 personen)
+        </div>
+        <br />
+
+        <div>
+            De bekleding: <br />
+            <input type="radio" name="Bekleding" value="Fondant"> Fondant (1 euro pp)  <br>
+            <input type="radio" name="Bekleding" value="Marsepein"> Marsepein (3 euro pp) <br>
+            <input type="radio" name="Bekleding" value="Allebei"> Allebei
+        </div>
+        <br />
+
+
+        <div>
+            De type cake: <br />
+            <input type="radio" name="typeCake" value="Chocolate"> Chocolate (2 euro pp)  <br>
+            <input type="radio" name="typeCake" value="RedVelvet"> Red Velvet (3 euro pp) <br>
+            <input type="radio" name="typeCake" value="Biscuitdeeg"> Biscuitdeeg (1 euro pp)
+        </div>
+        <br />
+
+        <div>
+            De vulling van de taart: <br />
+            <input type="radio" name="taartVulling" value="Champagneroom"> Champagneroom met verse frambozen  (3 euro pp)   <br>
+            <input type="radio" name="taartVulling" value="Gele room"> Gele room met Oreo vulling             (2 euro pp)   <br>
+            <input type="radio" name="taartVulling" value="Kindervulling"> Kindervulling (vruchten compote en room) (1 euro pp)
+        </div>
+        <br />
+
+        <div>
+            Heeft u of één van de gasten ook allergieën?
+            <input type="text" name="Allergieën" placeholder="Gluten, noten, etc" />
+        </div>
+        <br />
+
+        <div>
+            Complexiteit van decoratie: <br />
+            <input type="radio" name="Decoratie" value="Eenvoudig">  Eenvoudig  (3 euro pp)   <br>
+            <input type="radio" name="Decoratie" value="Gemiddeld">  Gemiddeld  (2 euro pp)   <br>
+            <input type="radio" name="Decoratie" value="Uitgebreid"> Uitgebreid (1 euro pp)
+        </div>
+        <br />
+
+        <div>
+            Wanneer is het evenement waar de taart voor is?
+            <input type="text" name="datumKlaar" />
+        </div>
+        <br />
+
+        <input type="submit" name="TaartSamengesteld" value="Bestelling doorgeven" />
+
+    </form>
+</body>
+
