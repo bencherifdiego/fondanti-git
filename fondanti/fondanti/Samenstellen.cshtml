@@ -1,16 +1,59 @@
 ﻿@using WebMatrix.Data
 @using WebMatrix.WebData
 @{
-    Validation.RequireField("thema", "Kies een thema.");
-    Validation.RequireField("aantalPersonen", "Kies aantal personen.");
-    Validation.RequireField("laag", "Kies het aantal lagen.");
-    Validation.RequireField("Bekleding", "Kies de type bekleding.");
-    Validation.RequireField("typeCake", "Kies de type cake.");
-    Validation.RequireField("taartVulling", "Kies een vulling voor de taart.");
-    Validation.RequireField("Decoratie", "Kies de complexiteit van de decoratie.");
-    Validation.RequireField("datumKlaar", "Kies een datum waarop de taart nodig is.");
+
+    //Alle variabelen voor het samenstellen van de taart
+    var thema = "";
+    var aantalPersonen = "";
+    var typeCake = "";
+    var aantalLagen = "";
+    var bekleding = "";
+    var vulling = "";
+    var allergien = "";
+    var decoratie = "";
+    var voorbeeldPlaatje = "";
+
+    if (IsPost /*& validatie is ok*/)
+    {
+        //variabelen de ingevulde waarde meegeven
+        thema = Request.Form["thema"];
+        aantalPersonen = Request.Form["aantalPersonen"];
+        typeCake = Request.Form["typeCake"];
+        aantalLagen = Request.Form["aantalLagen"];
+        bekleding = Request.Form["bekleding"];
+        vulling = Request.Form["vulling"];
+        allergien = Request.Form["allergien"];
+        decoratie = Request.Form["decoratie"];
+        voorbeeldPlaatje = Request.Form["voorbeeldPlaatje"];
+
+        //variabelen in sessions zetten
+        Session["thema"] = thema;
+        Session["aantalPersonen"] = aantalPersonen;
+        Session["typeCake"] = typeCake;
+        Session["aantalLagen"] = aantalLagen;
+        Session["bekleding"] = bekleding;
+        Session["vulling"] = vulling;
+        Session["allergien"] = allergien;
+        Session["decoratie"] = decoratie;
+        Session["voorbeeldPlaatje"] = voorbeeldPlaatje;
+
+        //doorgaan naar bevestigingpagina
+        Response.Redirect("Bevestiging.cshtml");
+    }
 
 
+    //Moet aangepast worden
+
+    //Validation.RequireField("thema", "Kies een thema.");
+    //Validation.RequireField("aantalPersonen", "Kies aantal personen.");
+    //Validation.RequireField("laag", "Kies het aantal lagen.");
+    //Validation.RequireField("Bekleding", "Kies de type bekleding.");
+    //Validation.RequireField("typeCake", "Kies de type cake.");
+    //Validation.RequireField("taartVulling", "Kies een vulling voor de taart.");
+    //Validation.RequireField("Decoratie", "Kies de complexiteit van de decoratie.");
+    //Validation.RequireField("datumKlaar", "Kies een datum waarop de taart nodig is.");
+
+    //Mailgedeelte
     if (IsPost && Validation.IsValid())
     {
         //hier gaat de mail naar toe
@@ -43,7 +86,7 @@
 }
 
 <body>
-    <form method="post" name="Bestelling">
+    <form method="post" name="bestelling">
         @{
             //Volgorde: Thema > Personen > Lagen > Type Cake > Bekleding > Taart Vulling > Allergieën > Niveau van decoratie > Datum taart nodig
         }
@@ -85,7 +128,7 @@
 
         <br />
 
-        <select>
+        <select name="typeCake">
             <option value="" disabled selected>Kies een type cake</option>
             <option value="chocolade">Chocolade</option>
             <option value="red_velvet">Red velvet</option>
@@ -102,7 +145,7 @@
         <br />
 
         <div>
-            <select>
+            <select name="aantalLagen">
                 <option value="" disabled selected>Kies het gewenste aantal lagen</option>
                 <option value="1">1 laag</option>
                 <option value="2">2 lagen</option>
@@ -120,7 +163,7 @@
 
         <br />
 
-        <select>
+        <select name="bekleding">
             <option value="" disabled selected>Kies de bekleding</option>
             <option value="fondant">fondant</option>
             <option value="marsepein">Marsepein</option>
@@ -136,7 +179,7 @@
 
         <br />
 
-        <select>
+        <select name="vulling">
             <option value="" disabled selected>Kies de vulling voor de eerste laag</option>
             <option value="champagne-frambozen">Champagneroom met verse frambozen</option>
             <option value="room-oreo">Gele room met Oreo</option>
@@ -166,7 +209,7 @@
         </h3>
 
         <div>
-            <select>
+            <select name="decoratie">
                 <option value="" disabled selected>Kies hier het gewenste niveau van decoratie</option>
                 <option value="eenvoudig">Eenvoudig</option>
                 <option value="gemiddeld">Gemiddeld</option>
@@ -182,15 +225,13 @@
         </h3>
 
         <div>
-            <input type="file" name="img" single>
+            <input type="file" name="voorbeeldPlaatje" single>
         </div>
 
         <br />
         <br />
 
-        <button>
-            <a href="~/Bevestiging.cshtml">Opslaan en naar de volgende pagina</a>
-        </button>
+        <input type="Submit" value="Opslaan en naar de volgende pagina" />
 
     </form>
 </body>
