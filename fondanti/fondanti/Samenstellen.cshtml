@@ -48,75 +48,149 @@
             //Volgorde: Thema > Personen > Lagen > Type Cake > Bekleding > Taart Vulling > Allergieën > Niveau van decoratie > Datum taart nodig
         }
 
-        <div>
-            <input type="radio" name="thema" value="Volwassen"> Verjaardag Volwassen     <br>
-            <input type="radio" name="thema" value="Bruiloft"> Bruiloft                  <br>
-            <input type="radio" name="thema" value="Kind"> Verjaardag Kind               <br>
-            <input type="radio" name="thema" value="Anders"> Anders, namelijk <input type="text" name="Anders" />
-        </div>
+        <h3>
+            De eerste stap is het aangeven wat voor thema de taart of cake moet hebben. Kies een van de beschikbare mogelijkheden of geef in één of meerdere woorden aan voor wat voor ander thema u wenst.
+        </h3>
+
         <br />
 
         <div>
-            Aantal personen:
-            <input type="text" name="aantalPersonen" />
+            <input type="text" name="thema" list="thema" placeholder="Vul hier het thema in">
+            <datalist id="thema">
+                <option value="Verjaardag volwassene">
+                <option value="Bruiloft">
+                <option value="Verjaardag kind">
+            </datalist>
         </div>
+
+        <br />
+        <br />
+
+        <h3>
+            De volgende stap is het aangeven voor hoeveel personen de taart moet zijn. De taart moet uiteraard groot genoeg zijn voor het aantal gasten. Hieronder kunt u het aantal personen invullen.
+        </h3>
+
         <br />
 
         <div>
-            Aantal lagen: <br />
-            <input type="radio" name="laag" value="Één laag"> Één laag (circa 15-20 personen)         <br>
-            <input type="radio" name="laag" value="Twee lagen"> Twee lagen (circa 30-40 personen)     <br>
-            <input type="radio" name="laag" value="Drie lagen"> Drie lagen (circa 50-60 personen)     <br>
-            <input type="radio" name="laag" value="Vier lagen"> Vier lagen (circa 70-80 personen)
+            <input type="text" name="aantalPersonen" placeholder="Vul hier het aantal personen in" />
         </div>
+
+        <br />
+        <br />
+
+        <h3>
+            Nu kunt u aangeven welke type cake u wilt. De gehele taart wordt gemaakt met deze type cake. U kunt hieronder kiezen uit de verschillende mogelijkheden.
+        </h3>
+
+        <br />
+
+        <select>
+            <option value="" disabled selected>Kies een type cake</option>
+            <option value="chocolade">Chocolade</option>
+            <option value="red_velvet">Red velvet</option>
+            <option value="biscuit">Biscuitdeeg</option>
+        </select>
+
+        <br />
+        <br />
+
+        <h3>
+            Hier kunt u aangeven uit hoeveel lagen de taart moet bestaan. Per laag kunnen er minimaal 15 personen uit gehaald worden. Hieronder kunt u kiezen uit de mogelijkheden die zijn gebaseerd op het aantal personen.
+        </h3>
+
         <br />
 
         <div>
-            De bekleding: <br />
-            <input type="radio" name="Bekleding" value="Fondant"> Fondant (1 euro pp)  <br>
-            <input type="radio" name="Bekleding" value="Marsepein"> Marsepein (3 euro pp) <br>
-            <input type="radio" name="Bekleding" value="Allebei"> Allebei
+            <select>
+                <option value="" disabled selected>Kies het gewenste aantal lagen</option>
+                <option value="1">1 laag</option>
+                <option value="2">2 lagen</option>
+                <option value="3">3 lagen</option>
+                <option value="4">4 lagen</option>
+            </select>
         </div>
+
+        <br />
         <br />
 
+        <h3>
+            Elke taart krijgt uiteraard een mooie bekleding. U kunt hieronder aangeven of u wilt dat de taart bekleed wordt met fondant, marsepein of allebei.
+        </h3>
+
+        <br />
+
+        <select>
+            <option value="" disabled selected>Kies de bekleding</option>
+            <option value="fondant">fondant</option>
+            <option value="marsepein">Marsepein</option>
+            <option value="allebei">Fondant en marsepein</option>
+        </select>
+
+        <br />
+        <br />
+
+        <h3>
+            Elke laag van de taart bevat een vulling. In deze stap kunt u aangeven welke vulling u in elke laag wilt hebben.
+        </h3>
+
+        <br />
+
+        <select>
+            <option value="" disabled selected>Kies de vulling voor de eerste laag</option>
+            <option value="champagne-frambozen">Champagneroom met verse frambozen</option>
+            <option value="room-oreo">Gele room met Oreo</option>
+            <option value="kind">Kindervulling (vruchtencompote en room)</option>
+        </select>
+
+        <br />
+        <br />
+
+        <h3>
+            Indien u de taart geschikt wilt maken voor eventuele allergieën dan kunt u dat hier aangeven. Kies voor “Geen” als er geen rekening met allergieën gehouden moet worden.
+        </h3>
 
         <div>
-            De type cake: <br />
-            <input type="radio" name="typeCake" value="Chocolate"> Chocolate (2 euro pp)  <br>
-            <input type="radio" name="typeCake" value="RedVelvet"> Red Velvet (3 euro pp) <br>
-            <input type="radio" name="typeCake" value="Biscuitdeeg"> Biscuitdeeg (1 euro pp)
+            <input type="text" name="allergien" list="allergien" placeholder="Geef hier eventuele allergieën aan">
+            <datalist id="allergien">
+                <option value="Geen">
+                <option value="Glutenvrij">
+            </datalist>
         </div>
+
         <br />
+        <br />
+
+        <h3>
+            Het samenstellen is bijna klaar. U hoeft hier alleen nog maar aan te geven hoe u het niveau van decoratie gewenst had. Dit is natuurlijk een belangrijk aspect van uw taart. Hieronder kunt u kiezen uit de mogelijkheden.
+        </h3>
 
         <div>
-            De vulling van de taart: <br />
-            <input type="radio" name="taartVulling" value="Champagneroom"> Champagneroom met verse frambozen  (3 euro pp)   <br>
-            <input type="radio" name="taartVulling" value="Gele room"> Gele room met Oreo vulling             (2 euro pp)   <br>
-            <input type="radio" name="taartVulling" value="Kindervulling"> Kindervulling (vruchten compote en room) (1 euro pp)
+            <select>
+                <option value="" disabled selected>Kies hier het gewenste niveau van decoratie</option>
+                <option value="eenvoudig">Eenvoudig</option>
+                <option value="gemiddeld">Gemiddeld</option>
+                <option value="uitgebreid">Uitgebreid</option>
+            </select>
         </div>
+
         <br />
+        <br />
+
+        <h3>
+            Mocht u een afbeelding hebben van een voorbeeldtaart ter inspiratie dan kunt u die hier uploaden. Als u dat niet heeft, kunt u deze stap overslaan en verder gaan naar de volgende pagina.
+        </h3>
 
         <div>
-            Heeft u of één van de gasten ook allergieën?
-            <input type="text" name="Allergieën" placeholder="Gluten, noten, etc" />
+            <input type="file" name="img" single>
         </div>
+
+        <br />
         <br />
 
-        <div>
-            Complexiteit van decoratie: <br />
-            <input type="radio" name="Decoratie" value="Eenvoudig">  Eenvoudig  (3 euro pp)   <br>
-            <input type="radio" name="Decoratie" value="Gemiddeld">  Gemiddeld  (2 euro pp)   <br>
-            <input type="radio" name="Decoratie" value="Uitgebreid"> Uitgebreid (1 euro pp)
-        </div>
-        <br />
-
-        <div>
-            Wanneer is het evenement waar de taart voor is?
-            <input type="text" name="datumKlaar" />
-        </div>
-        <br />
-
-        <input type="submit" name="TaartSamengesteld" value="Bestelling doorgeven" />
+        <button>
+            <a href="~/Bevestiging.cshtml">Opslaan en naar de volgende pagina</a>
+        </button>
 
     </form>
 </body>
