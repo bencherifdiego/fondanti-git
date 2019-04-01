@@ -1,62 +1,69 @@
 ﻿@{
-    
+    var thema = HttpContext.Current.Session["thema"].ToString();
+    var aantalPersonen = HttpContext.Current.Session["aantalPersonen"].ToString();
+    var typeCake = HttpContext.Current.Session["typeCake"].ToString();
+    var aantalLagen = HttpContext.Current.Session["aantalLagen"].ToString();
+    var bekleding = HttpContext.Current.Session["bekleding"].ToString();
+    var vulling = HttpContext.Current.Session["vulling"].ToString();
+    var allergien = HttpContext.Current.Session["allergien"].ToString();
+    var decoratie = HttpContext.Current.Session["decoratie"].ToString();
+    //ToString?
+    var voorbeeldPlaatje = HttpContext.Current.Session["voorbeeldPlaatje"].ToString();
+
 }
 
 <body>
 
-    <h1>
+    <h2>
         Hieronder staan uw geselecteerde onderdelen. 
         Als u iets wilt aanpassen kunt u daar op drukken om het te wijzigen. 
         Als alles in orde is dan kunt u helemaal onderaan op de knop drukken en dan wordt er een mail gestuurd naar Fondanti met daarin uw wensen.
-    </h1>
+    </h2>
 
     <p>
-        Thema:
-        <br />
-        @*Data uit session*@
-        <br />
-        <br />
-
-        Aantal personen:
-        <br />
-        @*Data uit session*@
+       <h3>Thema:</h3>
+        @thema
         <br />
         <br />
 
-        Aantal lagen:
-        <br />
-        @*Data uit session*@
+        <h3>Aantal personen:</h3>
+        @aantalPersonen
         <br />
         <br />
 
-        Bekleding:
+        <h3>Type cake:</h3>
+        @typeCake
         <br />
-        @*Data uit session*@
+        <br />
+
+        <h3>Aantal lagen:</h3>
+        @aantalLagen
+        <br />
+        <br />
+
+        <h3>Bekleding:</h3>
+        @bekleding
         <br />
         <br />
 
         @* Moet variabel zijn omdat het aantal lagen kan veranderen *@
-        Vulling voor de eerste laag:
-        <br />
-        @*Data uit session*@
-        <br />
-        <br />
-
-        Allergien:
-        <br />
-        @*Data uit session*@
+        <h3>Vulling voor de eerste laag:</h3>
+        @vulling
         <br />
         <br />
 
-        Mate van decoratie:
-        <br />
-        @*Data uit session*@
+        <h3>Allergien:</h3>
+        @allergien
         <br />
         <br />
 
-        Bijgevoegde data:
+        <h3>Mate van decoratie:</h3>
+        @decoratie
         <br />
-        @*Data uit session*@
+        <br />
+
+        <h3>Voorbeeldplaatje:</h3>
+        @voorbeeldPlaatje
     </p>
 
 </body>
