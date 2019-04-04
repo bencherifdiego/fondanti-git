@@ -12,6 +12,36 @@
     var decoratie = HttpContext.Current.Session["decoratie"].ToString();
     //ToString?
     var voorbeeldPlaatje = HttpContext.Current.Session["voorbeeldPlaatje"].ToString();
+
+
+    //Mailgedeelte
+    if (IsPost && Validation.IsValid())
+    {
+        //hier gaat de mail naar toe
+        var email = "bencherifdiego@gmail.com";
+
+        var errormessage = "";
+
+        try
+        {
+            //Initialize WebMail helper
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 25;
+            WebMail.EnableSsl = true;
+            WebMail.UserName = "diegocodetest@gmail.com";
+            WebMail.Password = "CodeTest";
+
+            //Send email
+            WebMail.Send(to: email,
+                subject: "A new order has been recieved",
+                body: gelegenheid + "<br/>" + thema + "<br/>" + aantalPersonen + "<br/>" + typeCake + "<br/>" + aantalLagen + "<br/>" + bekleding + "<br/>" + vulling + "<br/>" + allergien + "<br/>" + decoratie
+                );
+        }
+        catch (Exception ex)
+        {
+            errormessage = ex.Message;
+        }
+    }
 }
 
 <body>
@@ -72,5 +102,8 @@
         <h3>Voorbeeldplaatje:</h3>
         @voorbeeldPlaatje
     </p>
+    <form method="post">
+        <input type="submit" />
+    </form>
 
 </body>
