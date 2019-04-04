@@ -1,0 +1,96 @@
+﻿html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 60%;
+    font-family: 'Times New Roman';
+    font-size: 15pt;
+    background-color: white;
+    line-height: 1.6em;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.6em;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+p {
+    text-align: center;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+    left: 10%;
+}
+
+#header {
+    padding: 8px;
+    width: 80%;
+    text-align: center;
+    background-color: rosybrown;
+    color: black;
+}
+
+#main {
+    width: 80%;
+    padding: 8px;
+    padding-bottom: 4em;
+    background-color: lightseagreen;
+}
+
+.head {
+    background-color: #E8E8E8;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.column {
+    float: left;
+    width: 30%;
+    padding: 5px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    align-content: center;
+}
+
+@media screen and (max-width:600px) {
+    .column {
+        width: 100%;
+    }
+}
+
+.head {
+    background-color: #E8E8E8;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.grid th, .grid td {
+    border: 1px solid #C0C0C0;
+    padding: 5px;
+    text-align: center;
+}
+
+.alt {
+    background-color: #E8E8E8;
+    color: #000;
+}
+
+.grid {
+    margin: 4px;
+    border-collapse: collapse;
+    width: 600px;
+}

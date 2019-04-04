@@ -1,8 +1,11 @@
 ﻿@using WebMatrix.Data
 @using WebMatrix.WebData
 @{
+    Layout = "~/Layout.cshtml";
+
 
     //Alle variabelen voor het samenstellen van de taart
+    var gelegenheid = "";
     var thema = "";
     var aantalPersonen = "";
     var typeCake = "";
@@ -16,6 +19,7 @@
     if (IsPost /*& validatie is ok*/)
     {
         //variabelen de ingevulde waarde meegeven
+        gelegenheid = Request.Form["gelegenheid"];
         thema = Request.Form["thema"];
         aantalPersonen = Request.Form["aantalPersonen"];
         typeCake = Request.Form["typeCake"];
@@ -27,6 +31,7 @@
         voorbeeldPlaatje = Request.Form["voorbeeldPlaatje"];
 
         //variabelen in sessions zetten
+        Session["gelegenheid"] = gelegenheid;
         Session["thema"] = thema;
         Session["aantalPersonen"] = aantalPersonen;
         Session["typeCake"] = typeCake;
@@ -92,18 +97,31 @@
         }
 
         <h3>
-            De eerste stap is het aangeven wat voor thema de taart of cake moet hebben. Kies een van de beschikbare mogelijkheden of geef in één of meerdere woorden aan voor wat voor ander thema u wenst.
+            De eerste stap is het aangeven voor welke gelegenheid de taart of cake is. Kies een van de beschikbare opties of vul zelf een gelegenheid in.
         </h3>
 
         <br />
 
         <div>
-            <input type="text" name="thema" list="thema" placeholder="Vul hier het thema in">
-            <datalist id="thema">
+            <input type="text" name="gelegenheid" list="gelegenheid" placeholder="Vul hier de gelegenheid in">
+            <datalist id="gelegenheid">
                 <option value="Verjaardag volwassene">
                 <option value="Bruiloft">
                 <option value="Verjaardag kind">
             </datalist>
+        </div>
+
+        <br />
+        <br />
+
+        <h3>
+            Hier kunt u aangeven welk thema de taart moet krijgen. Dit is een belangrijke keuze want de taart wordt in deze stijl gedecoreerd. Vul hieronder een thema in.
+        </h3>
+
+        <br />
+
+        <div>
+            <input type="text" name="thema" placeholder="Vul hier een thema in" />
         </div>
 
         <br />
@@ -165,7 +183,7 @@
 
         <select name="bekleding">
             <option disabled selected>Kies de bekleding</option>
-            <option>fondant</option>
+            <option>Fondant</option>
             <option>Marsepein</option>
             <option>Fondant en marsepein</option>
         </select>

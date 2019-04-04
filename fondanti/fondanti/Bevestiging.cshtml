@@ -1,4 +1,7 @@
 ﻿@{
+    Layout = "~/Layout.cshtml";
+
+    var gelegenheid = HttpContext.Current.Session["gelegenheid"].ToString();
     var thema = HttpContext.Current.Session["thema"].ToString();
     var aantalPersonen = HttpContext.Current.Session["aantalPersonen"].ToString();
     var typeCake = HttpContext.Current.Session["typeCake"].ToString();
@@ -9,7 +12,6 @@
     var decoratie = HttpContext.Current.Session["decoratie"].ToString();
     //ToString?
     var voorbeeldPlaatje = HttpContext.Current.Session["voorbeeldPlaatje"].ToString();
-
 }
 
 <body>
@@ -21,7 +23,12 @@
     </h2>
 
     <p>
-       <h3>Thema:</h3>
+        <h3>Gelegenheid:</h3>
+        @gelegenheid
+        <br />
+        <br />
+
+        <h3>Thema:</h3>
         @thema
         <br />
         <br />
@@ -52,7 +59,7 @@
         <br />
         <br />
 
-        <h3>Allergien:</h3>
+        <h3>Allergieën:</h3>
         @allergien
         <br />
         <br />
